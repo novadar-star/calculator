@@ -1,0 +1,57 @@
+*{
+    box-sizing: border-box;
+
+}
+
+body{
+        overflow: hidden;
+
+}
+.container {
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 550px;
+    margin: 50px auto;
+    padding:10px;
+    border-radius: 10px;
+
+}
+
+.panel {
+display: flex;
+border: 1px solid pink;
+width:900px;
+height: 150px;
+margin: 20px;
+padding: 10px;
+}
+
+.button-number {
+border: 1px solid blue;
+margin:10px;
+height: 300px;
+width: 250px;
+display: block;
+padding: 10px;
+align-items: flex-start;
+}
+
+.button-oper{
+display: flex;
+flex-direction: column;
+border: 1px solid yellow;
+flex-wrap: wrap;
+
+
+}
+
+button {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.rowone, .rowtwo, .rowthree {
+margin: 0 5px;
+}

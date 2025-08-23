@@ -5,19 +5,27 @@
 
 body{
     overflow: hidden;
-
 }
 
-
+.outer-container{
+        border: 5px solid #985812;
+    background-color: #F7941D;
+    width:370px;
+    margin: auto;
+    margin-top: 10px;
+    height: 580px;
+    border-radius: 30px;
+}
 .container {
   
-    border: 5px solid #985812;
+    border: 5px solid #F7941D;
     display: flex;
     flex-wrap: wrap;
     width: 350px;
     height: 550px;
-    margin: 40px auto;
+    margin: 15px auto;
     padding:10px;
+    justify-content: flex-start;
     border-radius: 30px;
     background-color: #FCB92D;
 }
@@ -28,7 +36,7 @@ border: 4px solid #5D2A00;
 background-color: #9CE4FA;
 width:900px;
 height: 100px;
-margin: 50px 10px;
+margin: 50px 5px;
 padding: 10px;
 }
 .inner-panel {
@@ -66,4 +74,7 @@ button {
 div .button-number{
     margin: auto;
 }
-
+footer{
+    margin:10px;
+    text-align: center;
+}

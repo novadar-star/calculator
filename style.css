@@ -16,7 +16,6 @@ body{
     margin: 40px auto;
     padding:10px;
     border-radius: 15px;
-
 }
 
 .panel {
@@ -30,7 +29,7 @@ padding: 10px;
 
 .button-number {
 border: 1px solid blue;
-margin: 0;
+margin: 10px;
 height: 330px;
 width:  auto;
 display: flex;
@@ -40,28 +39,13 @@ overflow: hidden;
 
 }
 
-.button-oper{
-display: flex;
-flex-direction: column;
-border: 1px solid yellow;
-flex-wrap: wrap;
-width: 80px;
-padding:10px;
-
-
-}
-
 button {
     cursor: pointer;
-    padding: 22px;
-    margin:6px;
-    margin-right:9px;
+    padding: 23px;
+    margin: 2px;
 }
 
-.rowone, .rowtwo, .rowthree, .rowfour{
-margin: 0 0;
-}
-
-.button-number, .button-oper {
+div .button-number{
     margin: auto;
 }
+

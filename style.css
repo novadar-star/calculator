@@ -15,7 +15,7 @@ body{
     height: 550px;
     margin: 40px auto;
     padding:10px;
-    border-radius: 10px;
+    border-radius: 15px;
 
 }
 
@@ -31,12 +31,11 @@ padding: 10px;
 .button-number {
 border: 1px solid blue;
 margin: 0;
-height: 300px;
-width: 220px;
+height: 330px;
+width:  auto;
 display: flex;
 padding: 10px;
 flex-direction: column;
-
 overflow: hidden;
 
 }
@@ -46,15 +45,17 @@ display: flex;
 flex-direction: column;
 border: 1px solid yellow;
 flex-wrap: wrap;
-width: 70px;
+width: 80px;
+padding:10px;
 
 
 }
 
 button {
     cursor: pointer;
-    padding: 20px;
-    margin:5px;
+    padding: 22px;
+    margin:6px;
+    margin-right:9px;
 }
 
 .rowone, .rowtwo, .rowthree, .rowfour{

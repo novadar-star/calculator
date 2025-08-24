@@ -39,36 +39,7 @@ operBtn.forEach(operate => {
 
     })
 })
-/*
 
-btns.forEach(btn=> {
-    btn.addEventListener("click", (e)=>{
-        let res = 0;
-        let a;
-        let b;
-        //figure how to store 2 parameters 
-         btnOper = e.target.id;
-         switch(btnOper){
-            case "add":
-                return add(a,b)
-            case "subtract":
-                return subtract(a,b)
-            case "multiply":
-                return multiply(a,b)
-            case "divide":
-                return divide(a,b)
-         }
-    })
-})
-//once equal button is sclicked, appropriate operation function will occur
-
-let res = 0;
-equals.addEventListener("click", (e)=> {
-    btnOper = e.target.id;
-    alert(btnOper)
-})
-*/
-  
 function add(a,b){
     return a + b
 }
@@ -89,5 +60,10 @@ function divide(a,b){
 }
 function clearFields(){
     textfield.value = "";
+}
+
+function backspace(){
+     let val = document.querySelector("#textfield").value;
+      document.querySelector("#textfield").value = val.substr(0, val.length - 1)
 }
 

@@ -24,8 +24,8 @@ btnEq = document.getElementById('equal');
 const btns = document.querySelectorAll("button")
 
 btns. forEach(btn=> {
-    btn.addEventListener("click", ()=>{
-        let value = btn.id
+    btn.addEventListener("click", (e)=>{
+        let value = e.target.innerHTML;
          document.querySelector(".screen").innerHTML+= value;
     })
 })

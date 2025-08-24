@@ -1,11 +1,14 @@
 
 const btns = document.querySelectorAll("button")
 const equals = document.querySelector("#equal")
+const operBtn = document.querySelectorAll(".operator")
 let clickBtn = 0;
+
 btns.forEach(btn=> {
     btn.addEventListener("click", (e)=>{
         clickBtn = e.target.textContent;
-        document.querySelector(".screen").textContent += clickBtn;
+
+    document.querySelector("#textfield").value += clickBtn;
     })
 })
 
@@ -16,19 +19,26 @@ btns.forEach(btn=> {
 let num1 = "";
 let num2 = "";
 let operator = "";
-
+let result ;
 function operate(num1, num2, operator){
     switch(operator){
         case "+":
-            return add(num1,num2)
+            result = add(num1,num2)
         case "-":
-            return subtract(num1,num2)
+            result =subtract(num1,num2)
         case "x":
-            return multiply(num1,num2)
+            result = multiply(num1,num2)
         case "÷":
-            return divide(num1,num2)
+           result = divide(num1,num2)
     }
+     document.querySelector("#textfield").textContent += result;
 }
+
+operBtn.forEach(operate => {
+    operate.addEventListener("click", function(){
+
+    })
+})
 /*
 
 btns.forEach(btn=> {
@@ -77,7 +87,7 @@ function divide(a,b){
     }
     
 }
-function clear(){
-    document.querySelector(".screen").textContent = " ";
+function clearFields(){
+    textfield.value = "";
 }
 

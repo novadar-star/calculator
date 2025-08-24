@@ -6,11 +6,16 @@ const equals = document.querySelector("#equal")
 let clickBtn = 0;
 btns.forEach(btn=> {
     btn.addEventListener("click", (e)=>{
-        clickBtn = e.target.innerHTML;
-         document.querySelector(".screen").innerHTML+= clickBtn;
+        clickBtn = e.target.textContent;
+        document.querySelector(".screen").textContent += clickBtn;
     })
 })
 
+let res = 0;
+equals.addEventListener("click", (e)=> {
+    btnOper = e.target.id;
+    alert(btnOper)
+})
 
   
 function add(a,b){
@@ -23,9 +28,15 @@ function multiply(a,b){
     return a * b
 }
 function divide(a,b){
-    return a / b
+    if(b === 0){
+        return NaN;
+    }
+    else{
+        return a / b
+    }
+    
 }
 function clear(){
-    document.getElementById("all-clear").value = "";
+    document.querySelector(".screen").textContent = " ";
 }
 

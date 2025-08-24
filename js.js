@@ -6,7 +6,7 @@ let clickBtn = 0;
 
 btns.forEach(btn=> {
     btn.addEventListener("click", (e)=>{
-        clickBtn = e.target.textContent;
+        clickBtn = e.target.value; //dont output if value
 
     document.querySelector("#textfield").value += clickBtn;
     })

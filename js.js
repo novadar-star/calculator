@@ -1,7 +1,6 @@
 
 const btns = document.querySelectorAll("button")
 const equals = document.querySelector("#equal")
-//need to figure out once operation clicked you will have a new set of screen where u will apply the second parameter
 let clickBtn = 0;
 btns.forEach(btn=> {
     btn.addEventListener("click", (e)=>{
@@ -10,11 +9,34 @@ btns.forEach(btn=> {
     })
 })
 
+ document.querySelector("#equal").addEventListener("click", ()=> param)
+//need to figure out once operation clicked you will have a new set of screen where u will apply the second parameter
+
+//three variables
+let num1 = "";
+let num2 = "";
+let operator = "";
+
+function operate(num1, num2, operator){
+    switch(operator){
+        case "add":
+            return add(num1,num2)
+        case "subtract":
+            return subtract(num1,num2)
+        case "multiply":
+            return multiply(num1,num2)
+        case "divide":
+            return divide(num1,num2)
+    }
+}
+/*
+
 btns.forEach(btn=> {
     btn.addEventListener("click", (e)=>{
         let res = 0;
         let a;
         let b;
+        //figure how to store 2 parameters 
          btnOper = e.target.id;
          switch(btnOper){
             case "add":
@@ -29,7 +51,7 @@ btns.forEach(btn=> {
     })
 })
 //once equal button is sclicked, appropriate operation function will occur
-/*
+
 let res = 0;
 equals.addEventListener("click", (e)=> {
     btnOper = e.target.id;

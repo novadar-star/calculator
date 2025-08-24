@@ -1,7 +1,6 @@
 
 const btns = document.querySelectorAll("button")
 const equals = document.querySelector("#equal")
-
 //need to figure out once operation clicked you will have a new set of screen where u will apply the second parameter
 let clickBtn = 0;
 btns.forEach(btn=> {
@@ -11,12 +10,32 @@ btns.forEach(btn=> {
     })
 })
 
+btns.forEach(btn=> {
+    btn.addEventListener("click", (e)=>{
+        let res = 0;
+        let a;
+        let b;
+         btnOper = e.target.id;
+         switch(btnOper){
+            case "add":
+                return add(a,b)
+            case "subtract":
+                return subtract(a,b)
+            case "multiply":
+                return multiply(a,b)
+            case "divide":
+                return divide(a,b)
+         }
+    })
+})
+//once equal button is sclicked, appropriate operation function will occur
+/*
 let res = 0;
 equals.addEventListener("click", (e)=> {
     btnOper = e.target.id;
     alert(btnOper)
 })
-
+*/
   
 function add(a,b){
     return a + b

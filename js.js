@@ -1,42 +1,31 @@
-//append what value of button to the screen
-/*
-btnOne = document.getElementById('one');
-btnTwo = document.getElementById('two');
-btnThree = document.getElementById('three');
-btnFour = document.getElementById('four');
-
-btnFive = document.getElementById('five');
-btnSix = document.getElementById('six');
-btnSeven = document.getElementById('seven');
-btnEight = document.getElementById('eight');
-
-
-btnNine= document.getElementById('nine');
-btnAdd = document.getElementById('add');
-btnSub = document.getElementById('subtract');
-btnTimes = document.getElementById('multiply');
-
-btnDiv = document.getElementById('divide');
-btnDec = document.getElementById('decimal');
-btnEq = document.getElementById('equal');
-*/
 
 const btns = document.querySelectorAll("button")
+const equals = document.querySelector("#equal")
 
-btns. forEach(btn=> {
+//need to figure out once operation clicked you will have a new set of screen where u will apply the second parameter
+let clickBtn = 0;
+btns.forEach(btn=> {
     btn.addEventListener("click", (e)=>{
-        let value = e.target.innerHTML;
-         document.querySelector(".screen").innerHTML+= value;
+        clickBtn = e.target.innerHTML;
+         document.querySelector(".screen").innerHTML+= clickBtn;
     })
 })
-/*
-document.querySelectorAll("button").addEventListener("click", e=>
-    {
-       let target =  e.target ;
-       if (target.matches("button")){
-        let value = target.data-value;
-         document.querySelector(".inner-panel").innerHTML+= value; //appends what the button has clicked
-       }
-    }
-)
-    */
+
+
+  
+function add(a,b){
+    return a + b
+}
+function subtract(a,b){
+    return a - b
+}
+function multiply(a,b){
+    return a * b
+}
+function divide(a,b){
+    return a / b
+}
+function clear(){
+    document.getElementById("all-clear").value = "";
+}
+

@@ -41,10 +41,18 @@ height: 100px;
 margin: 22px 5px;
 padding: 10px;
 }
-.inner-panel {
+.inner-panel, input  {
 background-color: #BEF7FF;
 width:280px;
 }
+
+input[type="text"]{
+    padding: 30px;
+    width: 300px;
+    height:100px;
+    margin: -40px -10px;
+    font-size: larger;
+ }
 
 .screen {
     font-size: 20px;
@@ -109,7 +117,7 @@ a{
 width:135px;
 }
 
-#equal {
+#equal{
     background-color:#ceeaf2;
 }
 
@@ -118,3 +126,4 @@ width:135px;
     font-size: 15px;
 text-align: center;
 }
+

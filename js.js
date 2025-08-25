@@ -41,53 +41,27 @@ operBtn.forEach(oper=> {
             textfield.value = ""; //clears the input field 
             switch(operator){
                 case "+":
-                    result = add(num1,num2)
-                   
+                    result = add(+num1, +num2)
                     break;
                 case "-":
-                    result =subtract(num1,num2)
+                    result =subtract(+num1, +num2)
                     break;
                 case "x":
-                    result = multiply(num1,num2)
+                    result = multiply(+num1, +num2)
                     break;
                 case "÷":
-                    result = divide(num1,num2)
+                    result = divide(+num1, +num2)
                     break;
                 default:
                     break;
             }
-            document.querySelector("#textfield").value += result; 
+            document.querySelector("#textfield").value = result; 
             
            
     }
 })
 })
-//document.querySelector("#equal").addEventListener("click", ()=> param)
-//need to figure out once operation clicked you will have a new set of screen where u will apply the second parameter
-//STEP 6
-//three variables
 
-/*
-function operate(num1, num2, operator){
-    switch(operator){
-        case "+":
-            result = add(num1,num2)
-        case "-":
-            result =subtract(num1,num2)
-        case "x":
-            result = multiply(num1,num2)
-        case "÷":
-           result = divide(num1,num2)
-    }
-     document.querySelector("#textfield").value += result;
-}
-
-operBtn.forEach(operate => {
-    operate.addEventListener("click", function(){
-
-    })
-})
-    */
 
 function add(a,b){
     return a + b
@@ -108,8 +82,8 @@ function divide(a,b){
     }
 }
 function clearFields(){
-         num1.value = 0;
-     num2.value = 0;
+    num1.valueOf = "";
+     num2.valueOf = "";
     textfield.value = "";
 }
 

@@ -2,10 +2,10 @@
 const numBtn = document.querySelectorAll(".num")
 const operBtn = document.querySelectorAll(".operator")
 
-let num1 = "";
+let num1 ="";
 let num2 = "";
-let operator = "";
-let result = "";
+let operator ="";
+let result ="";
 
 /*
 bugs:
@@ -19,13 +19,15 @@ numBtn.forEach(num=> {
     num.addEventListener("click", (e)=>{
         if(operator === ""){ //will read first number if operator is empty
             num1 += e.target.value;
-            document.querySelector("#textfield").value = num1; //outputs the value on the screen
-            //alert(num1)
+            let numOne = parseFloat(num1)
+            document.querySelector("#textfield").value = numOne; //outputs the value on the screen
+            alert(typeof numOne)
         }
         else{ //if num is inputted will read the sec number
             num2 += e.target.value;
-            document.querySelector("#textfield").value  = num2;
-           // alert(num2)
+            let numTwo = parseFloat(num2)
+            document.querySelector("#textfield").value  = numTwo;
+             alert(typeof numTwo)
         }
     })
 })
@@ -41,16 +43,16 @@ operBtn.forEach(oper=> {
             textfield.value = ""; //clears the input field 
             switch(operator){
                 case "+":
-                    result = add(+num1, +num2)
+                    result = add(num1, num2)
                     break;
                 case "-":
-                    result =subtract(+num1, +num2)
+                    result =subtract(num1, num2)
                     break;
                 case "x":
-                    result = multiply(+num1, +num2)
+                    result = multiply(num1, num2)
                     break;
                 case "÷":
-                    result = divide(+num1, +num2)
+                    result = divide(num1, num2)
                     break;
                 default:
                     break;
@@ -75,7 +77,8 @@ function multiply(a,b){
 }
 function divide(a,b){
     if(b === 0){
-        return NaN;
+        return document.querySelector("#textfield").textContent = "Dont divide by zero!"
+       
     }
     else{
         return a / b
@@ -83,7 +86,7 @@ function divide(a,b){
 }
 function clearFields(){
     num1.valueOf = "";
-     num2.valueOf = "";
+    num2.valueOf = "";
     textfield.value = "";
 }
 

@@ -12,14 +12,15 @@ btns.forEach(btn=> {
     })
 })
 
- document.querySelector("#equal").addEventListener("click", ()=> param)
+//document.querySelector("#equal").addEventListener("click", ()=> param)
 //need to figure out once operation clicked you will have a new set of screen where u will apply the second parameter
-
+//STEP 6
 //three variables
 let num1 = "";
 let num2 = "";
 let operator = "";
-let result ;
+let result = "";
+
 function operate(num1, num2, operator){
     switch(operator){
         case "+":
@@ -31,7 +32,7 @@ function operate(num1, num2, operator){
         case "÷":
            result = divide(num1,num2)
     }
-     document.querySelector("#textfield").textContent += result;
+     document.querySelector("#textfield").value += result;
 }
 
 operBtn.forEach(operate => {

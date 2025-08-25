@@ -8,17 +8,16 @@ let num2 = "";
 let operator = "";
 let result = "";
 
-//num1, num2 is string while res is number wtf?
 //storing the clicked btn
 numBtn.forEach(num=> {
     num.addEventListener("click", (e)=>{
         if(operator === ""){ //will read first number if operator is empty
-            num1 = e.target.value;
+            num1 += e.target.value;
             document.querySelector("#textfield").value = num1;
             //alert(typeof num1)
         }
         else{ //if num is inputted will read the sec number
-            num2 = e.target.value;
+            num2 += e.target.value;
             document.querySelector("#textfield").value = num2;
            //alert(typeof num2)
         }
@@ -34,22 +33,23 @@ operBtn.forEach(oper=> {
         }
         else{ //if equal btn clicked; numerical operations
             textfield.value = ""; //clears the input field 
+            alert(operator)
          switch(operator){
             case "+":
-                result = add(num1,num2)
+                result =  add(num1, num2)
                 break;
             case "-":
-                result =subtract(num1,num2)
+                result = subtract(num1, num2)
                 break;
             case "x":
-                result = multiply(num1,num2)
+                result = multiply(num1, num2)
                 break;
             case "÷":
-            result = divide(num1,num2)
+                result = divide(num1, num2)
                 break;
             }
             alert(result)
-            document.querySelector("#textfield").value = result; 
+            document.querySelector("#textfield").value = result.toFixed(2); 
             
     }
 })
@@ -57,23 +57,23 @@ operBtn.forEach(oper=> {
 
 
 function add(a,b){
-    return a + b
+    return parseFloat(a) + parseFloat(b)
 }
 function subtract(a,b){
-    return a - b
+    return parseFloat(a) - parseFloat(b)
 }
 function multiply(a,b){
-    return a * b
+    return parseFloat(a) * parseFloat(b)
 }
 function divide(a,b){
-    if(b === 0){
-      
-        return document.querySelector("#textfield").innerHTML = "Dont divide by zero!"
+    if(b === 0){    
+        return document.querySelector("#textfield").textContent = "Dont divide by zero!"
     }
     else{
-        return a / b
+         return parseFloat(a) / parseFloat(b)
     }
 }
+   
 function clearFields(){
     textfield.value = "";
 }

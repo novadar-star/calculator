@@ -5,6 +5,7 @@
 
 body{
     overflow: hidden;
+    background-color: #FADDA1;
 }
 
 .outer-container{
@@ -49,7 +50,7 @@ width:280px;
 input[type="text"]{
     padding: 30px;
     width: 300px;
-    
+
     height:100px;
     margin: -40px -10px;
     font-size: larger;

@@ -42,29 +42,43 @@ height: 100px;
 margin: 22px 5px;
 padding: 10px;
 }
-.inner-panel, input  {
+.inner-panel     {
 background-color: #BEF7FF;
 width:280px;
 }
+input {
+    background-color: #97acaf;
+width:280px;
+}
 
-input[type="text"]{
+input[name="textfield"]{
     padding: 30px;
-    width: 300px;
-
+    width: 10px;
+    height:100px;
+    font-size: larger;
+ }
+input[name="history"]{
+    padding: 30px;
+    width: 10px;
     height:100px;
     margin: -40px -10px;
     font-size: larger;
  }
+ input[type="textfield"]{
+    display: flex;
+ }
 
+ 
 .screen {
     font-size: 20px;
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     margin:40px 10px;
     overflow: hidden;
 }
-/* need to figure out  how to center the button-number class 
-much upper */
+
+
 .button-number {
 height: auto;
 width:  auto;
@@ -126,6 +140,6 @@ width:135px;
 #all-clear, #clear{
     height: 20px;
     font-size: 15px;
-text-align: center;
+    text-align: center;
 }
 

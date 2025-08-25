@@ -50,10 +50,11 @@ operBtn.forEach(oper=> {
                 break;
             case "÷":
                 result = divide(num1, num2)
-               
                 break;
             }
              document.querySelector("#textfield").value = result; 
+             let history = [];
+             history.push(result)
 
 
          /*
@@ -94,9 +95,8 @@ function divide(a,b){
 }
    
 function clearFields(){
-
     document.querySelector("#textfield").value = 0
-
+    document.querySelector("#textfield").reset();
 
 }
 

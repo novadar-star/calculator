@@ -1,10 +1,11 @@
 
 const numBtn = document.querySelectorAll(".num")
 const operBtn = document.querySelectorAll(".operator")
-
+document.querySelector("#textfield").value = 0
 
 let num1 = "";
 let num2 = "";
+let temp = ""
 let operator = "";
 let result = "";
 
@@ -17,6 +18,7 @@ numBtn.forEach(num=> {
             //alert(typeof num1)
         }
         else{ //if num is inputted will read the sec number
+             textfield.value = ""; 
             num2 += e.target.value;
             document.querySelector("#textfield").value = num2;
            //alert(typeof num2)
@@ -26,14 +28,13 @@ numBtn.forEach(num=> {
 
 operBtn.forEach(oper=> {
     oper.addEventListener("click", (e)=>{
-
+        
         if(e.target.value !== "="){ //as long as equal btn is click will print to screen
             operator = e.target.value;
             document.querySelector("#textfield").value = operator;
         }
         else{ //if equal btn clicked; numerical operations
             textfield.value = ""; //clears the input field 
-            alert(operator)
          switch(operator){
             case "+":
                 result =  add(num1, num2)
@@ -48,8 +49,20 @@ operBtn.forEach(oper=> {
                 result = divide(num1, num2)
                 break;
             }
-            alert(result)
-            document.querySelector("#textfield").value = result.toFixed(2); 
+
+         /*
+            if(document.querySelector("#textfield").value = result){ //if res has been showwed
+                num1 = "";
+                num2 = "";  
+                document.querySelector("#textfield").value = ""; 
+                 
+            }
+            else{
+                document.querySelector("#textfield").value = result; 
+            }
+                */
+                
+          
             
     }
 })
@@ -75,7 +88,10 @@ function divide(a,b){
 }
    
 function clearFields(){
-    textfield.value = "";
+
+    textfield.value = 0;
+   
+    sessionStorage.clear();
 }
 
 function backspace(){

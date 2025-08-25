@@ -43,30 +43,29 @@ margin: 22px 5px;
 padding: 10px;
 }
 .inner-panel     {
-background-color: #BEF7FF;
-width:280px;
+    background-color: #BEF7FF;
+    width:280px;
 }
 input {
-    background-color: #97acaf;
-width:280px;
+    background-color: #BEF7FF;
+    width:280px;
+      border: none;
 }
 
+
 input[name="textfield"]{
-    padding: 30px;
-    width: 10px;
-    height:100px;
-    font-size: larger;
+    padding: 15px;
+    width: 250px;
+    margin: -20px -15px;
+    font-size: 20px;
  }
 input[name="history"]{
-    padding: 30px;
-    width: 10px;
-    height:100px;
-    margin: -40px -10px;
-    font-size: larger;
+    padding: 12px;
+    width: 250px;
+    height: 0px;
+    font-size: 12px;
  }
- input[type="textfield"]{
-    display: flex;
- }
+ 
 
  
 .screen {
@@ -74,7 +73,7 @@ input[name="history"]{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    margin:40px 10px;
+    margin:5px 10px;
     overflow: hidden;
 }
 

@@ -17,26 +17,54 @@ numBtn.forEach(btn=> {
     document.querySelector("#textfield").value += clickBtn;
     })
 })
-
-
+//storing the clicked btn
 numBtn.forEach(num=> {
     num.addEventListener("click", (e)=>{
         if(operator === ""){ //will read first number if operator is empty
             num1 += e.target.value;
-            alert(num1)
+            //alert(num1)
         }
         else{ //if num is inputted will read the sec number
-            num1 += e.target.value;
-            alert(num2)
+            num2 += e.target.value;
+           // alert(num2)
         }
     } )
+})
+
+operBtn.forEach(oper=> {
+    oper.addEventListener("click", (e)=>{
+        operator = e.target.value;
+
+        if(e.target.value !== "="){ //as long as equal btn is click will print to screen?
+            document.querySelector("#textfield").value = num1;
+            document.querySelector("#textfield").value = operator;
+             document.querySelector("#textfield").value = num2;
+        }
+        else{ //if equal btn clicked; numerical operations
+         switch(operator){
+            case "+":
+                result = add(num1,num2)
+                break;
+            case "-":
+                result =subtract(num1,num2)
+                break;
+            case "x":
+                result = multiply(num1,num2)
+                break;
+            case "÷":
+            result = divide(num1,num2)
+                break;
+            }
+              document.querySelector("#textfield").value += result; 
+    }
+})
 })
 //document.querySelector("#equal").addEventListener("click", ()=> param)
 //need to figure out once operation clicked you will have a new set of screen where u will apply the second parameter
 //STEP 6
 //three variables
 
-
+/*
 function operate(num1, num2, operator){
     switch(operator){
         case "+":
@@ -56,6 +84,7 @@ operBtn.forEach(operate => {
 
     })
 })
+    */
 
 function add(a,b){
     return a + b
@@ -73,7 +102,6 @@ function divide(a,b){
     else{
         return a / b
     }
-    
 }
 function clearFields(){
     textfield.value = "";

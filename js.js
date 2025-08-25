@@ -1,7 +1,9 @@
 
 const numBtn = document.querySelectorAll(".num")
 const operBtn = document.querySelectorAll(".operator")
-document.querySelector("#textfield").value = 0
+const screen = document.querySelector("#textfield")
+
+screen.value = "0"
 
 let num1 = "";
 let num2 = "";
@@ -9,6 +11,7 @@ let temp = ""
 let operator = "";
 let result = "";
 
+//bugs: AC doesnt permanently clear the screen, only its textcontent
 //storing the clicked btn
 numBtn.forEach(num=> {
     num.addEventListener("click", (e)=>{
@@ -18,7 +21,7 @@ numBtn.forEach(num=> {
             //alert(typeof num1)
         }
         else{ //if num is inputted will read the sec number
-             textfield.value = ""; 
+            screen.value = ""; 
             num2 += e.target.value;
             document.querySelector("#textfield").value = num2;
            //alert(typeof num2)
@@ -47,8 +50,11 @@ operBtn.forEach(oper=> {
                 break;
             case "÷":
                 result = divide(num1, num2)
+               
                 break;
             }
+             document.querySelector("#textfield").value = result; 
+
 
          /*
             if(document.querySelector("#textfield").value = result){ //if res has been showwed
@@ -79,19 +85,19 @@ function multiply(a,b){
     return parseFloat(a) * parseFloat(b)
 }
 function divide(a,b){
-    if(b === 0){    
+    if(b == 0){    
         return document.querySelector("#textfield").textContent = "Dont divide by zero!"
     }
     else{
-         return parseFloat(a) / parseFloat(b)
+         return (parseFloat(a) / parseFloat(b)).toFixed(2)
     }
 }
    
 function clearFields(){
 
-    textfield.value = 0;
-   
-    sessionStorage.clear();
+    document.querySelector("#textfield").value = 0
+
+
 }
 
 function backspace(){

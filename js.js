@@ -64,7 +64,11 @@ operBtn.forEach(operate => {
             case "÷":
                 result = divide(num1, num2)
                 break;
+            default:
+                alert("Error occured!")
             }
+          
+
              document.querySelector("#textfield").value = result; 
              //after clicking press, result must be appended not num2
              /*

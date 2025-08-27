@@ -2,6 +2,8 @@
 const numBtn = document.querySelectorAll(".num")
 const operBtn = document.querySelectorAll(".operator")
 const screen = document.querySelector("#textfield")
+const history = document.querySelector("#history")
+
 
 screen.value = "0"
 
@@ -11,28 +13,39 @@ let temp = ""
 let operator = "";
 let result = "";
 
+
 //bugs: AC doesnt permanently clear the screen, only its textcontent
+//delete button doesnt work
 //storing the clicked btn
+
 numBtn.forEach(num=> {
     num.addEventListener("click", (e)=>{
-        if(operator === ""){ //will read first number if operator is empty
-            num1 += e.target.value;
+            if(operator === ""){
+            screen.value = ""; 
+            num1 += e.target.value
+            //num1 += e.target.value;
             document.querySelector("#textfield").value = num1;
-            //alert(typeof num1)
-        }
-        else{ //if num is inputted will read the sec number
+            //num1 = "";
+            }
+        
+            else{ //if num is inputted will read the sec number
             screen.value = ""; 
             num2 += e.target.value;
             document.querySelector("#textfield").value = num2;
+
            //alert(typeof num2)
         }
+        
+        
+    
     })
 })
 
-operBtn.forEach(oper=> {
-    oper.addEventListener("click", (e)=>{
-        
-        if(e.target.value !== "="){ //as long as equal btn is click will print to screen
+operBtn.forEach(operate => {
+    operate.addEventListener("click", (e)=>{
+         
+        if(e.target.value !== "=" ){ //as long as equal btn is click will print to screen
+          
             operator = e.target.value;
             document.querySelector("#textfield").value = operator;
         }
@@ -53,11 +66,13 @@ operBtn.forEach(oper=> {
                 break;
             }
              document.querySelector("#textfield").value = result; 
-             let history = [];
-             history.push(result)
+             //after clicking press, result must be appended not num2
+             /*
+             let historyNum = [];
+             //why is it outputing 1 not the result itself? LMAOO I CANT    
+                history.value = historyNum.push(result);
+             alert(historyNum)
 
-
-         /*
             if(document.querySelector("#textfield").value = result){ //if res has been showwed
                 num1 = "";
                 num2 = "";  
@@ -95,8 +110,13 @@ function divide(a,b){
 }
    
 function clearFields(){
-    document.querySelector("#textfield").value = 0
-    document.querySelector("#textfield").reset();
+    num2= ""
+    num1=""
+    result = ""
+    //num2 = ""
+
+    document.querySelector("#textfield").value= ""
+    document.querySelector("#history").value= ""
 
 }
 

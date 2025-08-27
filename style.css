@@ -63,6 +63,7 @@ input[name="history"]{
     padding: 12px;
     width: 250px;
     height: 0px;
+    margin: 0 -10px;
     font-size: 12px;
  }
  

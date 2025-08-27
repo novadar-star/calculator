@@ -43,13 +43,13 @@ numBtn.forEach(num=> {
 
 operBtn.forEach(operate => {
     operate.addEventListener("click", (e)=>{
-         
         if(e.target.value !== "=" ){ //as long as equal btn is click will print to screen
           
             operator = e.target.value;
             document.querySelector("#textfield").value = operator;
         }
         else{ //if equal btn clicked; numerical operations
+           
             textfield.value = ""; //clears the input field 
          switch(operator){
             case "+":
@@ -110,10 +110,10 @@ function divide(a,b){
 }
    
 function clearFields(){
+   
     num2= ""
-    num1=""
+     num1 = ""
     result = ""
-    //num2 = ""
 
     document.querySelector("#textfield").value= ""
     document.querySelector("#history").value= ""

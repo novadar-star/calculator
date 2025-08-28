@@ -1,7 +1,7 @@
 
 const numBtn = document.querySelectorAll(".num")
 const operBtn = document.querySelectorAll(".operator")
-const screen = document.querySelector("#textfield")
+const screen = document.querySelector(".screen")
 const history = document.querySelector("#history")
 
 
@@ -68,26 +68,8 @@ operBtn.forEach(operate => {
                 alert("Error occured!")
             }
           
-
              document.querySelector("#textfield").value = result; 
-             //after clicking press, result must be appended not num2
-             /*
-             let historyNum = [];
-             //why is it outputing 1 not the result itself? LMAOO I CANT    
-                history.value = historyNum.push(result);
-             alert(historyNum)
-
-            if(document.querySelector("#textfield").value = result){ //if res has been showwed
-                num1 = "";
-                num2 = "";  
-                document.querySelector("#textfield").value = ""; 
-                 
-            }
-            else{
-                document.querySelector("#textfield").value = result; 
-            }
-                */
-                
+            
           
             
     }

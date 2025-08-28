@@ -112,9 +112,7 @@ a{
     color: black
 }
 
-#clear button{
-    height:135px;
-}
+
 
 #operator{
     background-color:#ceeaf2;
@@ -124,18 +122,29 @@ a{
 }
 
 #clear{
-    font-size: 10px;
+    font-size: 2px;
     text-align: center;
     display: flex;
     flex-direction: column;
     margin-right: 12px;
     justify-content: center;
-  
+   
+
+}
+#clear button{
+   background-color: pink;
+    height:110px;
+
+}
+
+#clear button:hover{
+       background-color: rgb(230, 149, 163);
+
 }
 
 
 footer{
-    margin: 28px;
+    margin: 20px;
 }
 
 

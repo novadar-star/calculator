@@ -2,6 +2,7 @@
 const numBtn = document.querySelector("#number-btn")
 const operBtn = document.querySelector("#operator")
 const screen = document.querySelector(".inner-panel")
+const clearBtn = document.querySelector("#clear")
 
 let firstNum= 0, secondNum, operator;
 let temp = ""
@@ -76,15 +77,16 @@ function clickedEquals(){
         return;
     }
     else if(latestClick === 0){
-        screen.innerText = "" + operate(first, screen.innerText, second)
+        screen.innerText = "" + operate(firstNum, screen.innerText, operator)
         current = 2
     }
+   
 }
 
 function operButtonClick(target){
     if(operator !== undefined && latestClick === 0){
         screen.innerText = ""  + operate(firstNum, screen.innerText, operator)
-
+    
     }
     firstNum = screen.innerText;
     operator = target.innerText;
@@ -113,7 +115,7 @@ numBtn.addEventListener("click", (e)=>{
         return
     }
     else if(target.id === "backspace"){
-        backspace()
+        backspace(target)
     }
     else if(target.id === "operator"){
         operButtonClick(target)
@@ -121,5 +123,19 @@ numBtn.addEventListener("click", (e)=>{
     else{
         numBtnClick(target)
     }
-    alert(target.id)
+})
+
+clearBtn.addEventListener("click", (e)=>{
+ let target = e.target;
+ if (target.id === "backspace"){
+    backspace()
+ }
+// else if(target.id === "clear-all")
+else if(target.id === "equals"){
+    clickedEquals()
+}
+
+    operator == undefined
+
+
 })

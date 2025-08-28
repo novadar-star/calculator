@@ -45,16 +45,13 @@ padding: 10px;
 .inner-panel     {
     background-color: #BEF7FF;
     width: 360px; 
-}
-
-.screen {
     font-size: 20px;
+    text-align: right;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    margin:5px 10px;
-    overflow: hidden;
 }
+
  .buttons{
     display: flex;
  }
@@ -115,18 +112,18 @@ a{
     color: black
 }
 
-.clear button{
+#clear button{
     height:135px;
 }
 
-.operator{
+#operator{
     background-color:#ceeaf2;
 }
-.operator:hover{
+#operator:hover{
     background-color:#8dcada;
 }
 
-.clear{
+#clear{
     font-size: 10px;
     text-align: center;
     display: flex;
@@ -137,10 +134,4 @@ a{
 }
 
 
-.btn-clear{
-    background-color: pink;
-}
-.btn-clear:hover{
-    background-color: rgb(244, 146, 163);
 
-}

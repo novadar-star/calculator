@@ -1,81 +1,17 @@
 
-const numBtn = document.querySelectorAll(".button-number")
-const operBtn = document.querySelectorAll(".operator")
-const screen = document.querySelector(".screen")
-
-screen.textContent = 0;
+const numBtn = document.querySelector("#number-btn")
+const operBtn = document.querySelector("#operator")
+const screen = document.querySelector(".inner-panel")
 
 let firstNum= 0, secondNum, operator;
 let temp = ""
 let result = "";
+let current = 1;
 
 
 //bugs: AC doesnt permanently clear the screen, only its textcontent
 //delete button doesnt work
 //storing the clicked btn
-
-numBtn.forEach(num=> {
-    num.addEventListener("click", (e)=>{
-        let target = e.target;
-        if(target.class === "screen"){
-            return;
-        }
-            if(operator === ""){
-            screen.value = ""; 
-            num1 += e.target.value
-            //num1 += e.target.value;
-            document.querySelector(".screen").value = num1;
-            //num1 = "";
-            }
-        
-            else{ //if num is inputted will read the sec number
-            screen.value = ""; 
-            num2 += e.target.value;
-            document.querySelector(".screen").value = num2;
-
-           //alert(typeof num2)
-        }
-        
-        
-    
-    })
-})
-
-operBtn.forEach(operate => {
-    operate.addEventListener("click", (e)=>{
-        if(e.target.value !== "=" ){ //as long as equal btn is click will print to screen
-          
-            operator = e.target.value;
-            document.querySelector(".screen").value = operator;
-        }
-        else{ //if equal btn clicked; numerical operations
-           
-            textfield.value = ""; //clears the input field 
-         switch(operator){
-            case "+":
-                result =  add(num1, num2)
-                break;
-            case "-":
-                result = subtract(num1, num2)
-                break;
-            case "x":
-                result = multiply(num1, num2)
-                break;
-            case "÷":
-                result = divide(num1, num2)
-                break;
-            default:
-                alert("Error occured!")
-            }
-          
-             document.querySelector(".screen").value = result; 
-            
-          
-            
-    }
-})
-})
-
 
 function add(a,b){
     return a + b
@@ -88,7 +24,7 @@ function multiply(a,b){
 }
 function divide(a,b){
     if(b === 0){    
-        return document.querySelector(".screen").textContent = "Dont divide by zero!"
+        return document.querySelector(".inner-panel").innerText = "Dont divide by zero!"
     }
     else{
          return ((a/b).toFixed(2))
@@ -128,12 +64,62 @@ function operate(first, second, operator){
 
 
 function clearFields(){
-    document.querySelector(".screen").innerText =  "";
+  document.querySelector(".inner-panel").innerText =  "";
     current = 1;
 
 }
 
-function backspace(){
-    let val = document.querySelector(".screen").value;
-    document.querySelector(".screen").value = val.substr(0, val.length - 1)
+let latestClick = 0; //number = 0 operator 1
+
+function clickedEquals(){
+    if(operator === undefined){
+        return;
+    }
+    else if(latestClick === 0){
+        screen.innerText = "" + operate(first, screen.innerText, second)
+        current = 2
+    }
 }
+
+function operButtonClick(target){
+    if(operator !== undefined && latestClick === 0){
+        screen.innerText = ""  + operate(firstNum, screen.innerText, operator)
+
+    }
+    firstNum = screen.innerText;
+    operator = target.innerText;
+    current = 2;
+    alert(`left: ${firstNum} and operator ${operator}`);
+
+    latestClick =1
+}
+
+function numBtnClick(target){
+    if(current === 2){ //if current screen is clicked with anthing other than num and oper
+        clearFields()
+    }
+    screen.innerText += target.innerText;
+    latestClick = 0;
+}
+
+function backspace(){
+    let val = document.querySelector(".inner-panel").value;
+  document.querySelector(".inner-panel").value = val.substr(0, val.length - 1)
+}
+
+numBtn.addEventListener("click", (e)=>{
+    let target = e.target;
+    if(target.id === "number-btn"){ 
+        return
+    }
+    else if(target.id === "backspace"){
+        backspace()
+    }
+    else if(target.id === "operator"){
+        operButtonClick(target)
+    }
+    else{
+        numBtnClick(target)
+    }
+    alert(target.id)
+})

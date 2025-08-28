@@ -2,15 +2,11 @@
 const numBtn = document.querySelectorAll(".button-number")
 const operBtn = document.querySelectorAll(".operator")
 const screen = document.querySelector(".screen")
-const history = document.querySelector("#history")
 
+screen.textContent = 0;
 
-screen.value = "0"
-
-let num1 = "";
-let num2 = "";
+let firstNum= 0, secondNum, operator;
 let temp = ""
-let operator = "";
 let result = "";
 
 
@@ -82,30 +78,58 @@ operBtn.forEach(operate => {
 
 
 function add(a,b){
-    return parseFloat(a) + parseFloat(b)
+    return a + b
 }
 function subtract(a,b){
-    return parseFloat(a) - parseFloat(b)
+    return a-b
 }
 function multiply(a,b){
-    return parseFloat(a) * parseFloat(b)
+    return a*b
 }
 function divide(a,b){
-    if(b == 0){    
+    if(b === 0){    
         return document.querySelector(".screen").textContent = "Dont divide by zero!"
     }
     else{
-         return (parseFloat(a) / parseFloat(b)).toFixed(2)
+         return ((a/b).toFixed(2))
     }
 }
-   
-function clearFields(){
-   
-    num2= ""
-     num1 = ""
-    result = ""
 
-    document.querySelector(".screen").value= ""
+
+function operate(first, second, operator){
+    let num1 = +first,
+    num2 = +second;
+    let result;
+
+     switch(operator){
+        case "+":
+            result =  add(num1, num2)
+            break;
+        case "-":
+            result = subtract(num1, num2)
+            break;
+        case "x":
+            result = multiply(num1, num2)
+            break;
+        case "÷":
+            result = divide(num1, num2)
+            break;
+        default:
+            alert("Error occured!")
+            }
+
+
+    if (result === ""){
+        return result
+    }
+
+    return Math.round((result * 1000)/1000) //rounds to 3 decimal places
+}
+
+
+function clearFields(){
+    document.querySelector(".screen").innerText =  "";
+    current = 1;
 
 }
 

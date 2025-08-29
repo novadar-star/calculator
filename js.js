@@ -1,37 +1,15 @@
-
 const numBtn = document.querySelector("#number-btn")
 const operBtn = document.querySelector("#operator")
 const screen = document.querySelector(".inner-panel")
 const clearBtn = document.querySelector("#clear")
 
-let firstNum= 0, secondNum, operator;
-let temp = ""
-let result = "";
+let firstNum= 0;
+let secondNum, operator;
 let current = 1;
-
 
 //bugs: AC doesnt permanently clear the screen, only its textcontent
 //delete button doesnt work
 //storing the clicked btn
-
-function add(a,b){
-    return a + b
-}
-function subtract(a,b){
-    return a-b
-}
-function multiply(a,b){
-    return a*b
-}
-function divide(a,b){
-    if(b === 0){    
-        return document.querySelector(".inner-panel").innerText = "Dont divide by zero!"
-    }
-    else{
-         return ((a/b).toFixed(2))
-    }
-}
-
 
 function operate(first, second, operator){
     let num1 = +first,
@@ -48,15 +26,13 @@ function operate(first, second, operator){
         case "x":
             result = multiply(num1, num2)
             break;
-        case "÷":
+        case "/":
             result = divide(num1, num2)
             break;
         default:
             alert("Error occured!")
             }
-
-
-    if (result === ""){
+    if (result === ""){ //if  string..return
         return result
     }
 
@@ -64,16 +40,11 @@ function operate(first, second, operator){
 }
 
 
-function clearFields(){
-  document.querySelector(".inner-panel").innerText =  "";
-    current = 1;
-
-}
 
 let latestClick = 0; //number = 0 operator 1
 
 function clickedEquals(){
-    if(operator === undefined){
+    if(operator === undefined){ 
         return;
     }
     else if(latestClick === 0){
@@ -82,11 +53,11 @@ function clickedEquals(){
     }
    
 }
-
+//condition if greater than 0 of screen length
+//slice (0,-1)
 function operButtonClick(target){
-    if(operator !== undefined && latestClick === 0){
-        screen.innerText = ""  + operate(firstNum, screen.innerText, operator)
-    
+    if(operator !== undefined && latestClick === 0){ //if oper is define and latestClick is 0
+        screen.innerText =  operate(firstNum, screen.innerText, operator)
     }
     firstNum = screen.innerText;
     operator = target.innerText;
@@ -100,22 +71,31 @@ function numBtnClick(target){
     if(current === 2){ //if current screen is clicked with anthing other than num and oper
         clearFields()
     }
+    
     screen.innerText += target.innerText;
     latestClick = 0;
+    
+    
 }
 
 function backspace(){
-    let val = document.querySelector(".inner-panel").value;
-  document.querySelector(".inner-panel").value = val.substr(0, val.length - 1)
+ if(screen.innerText > 0){
+    screen.innerText = screen.innerText.slice(0,-1)
+ }
+}
+
+function clearFields(){
+    //convert number to tring then use slice
+     if(screen.innerText > 0){
+    screen.innerText = screen.innerText.slice(-1,0)
+     }
+    current = 1;
 }
 
 numBtn.addEventListener("click", (e)=>{
     let target = e.target;
-    if(target.id === "number-btn"){ 
+    if(target.id === "number-btn"){  //returns the button itself
         return
-    }
-    else if(target.id === "backspace"){
-        backspace(target)
     }
     else if(target.id === "operator"){
         operButtonClick(target)
@@ -128,14 +108,34 @@ numBtn.addEventListener("click", (e)=>{
 clearBtn.addEventListener("click", (e)=>{
  let target = e.target;
  if (target.id === "backspace"){
-    backspace()
+   backspace()
+ }
+ else if(target.id === "clear-all"){
+     clearFields()
  }
 // else if(target.id === "clear-all")
 else if(target.id === "equals"){
     clickedEquals()
 }
-
     operator == undefined
-
-
 })
+
+function add(a,b){
+    return a + b
+}
+function subtract(a,b){
+    return a-b
+}
+function multiply(a,b){
+    return a*b
+}
+function divide(a,b){
+    if(b == 0){    
+        let message =  "Dont divide by zero!"
+        alert(message)
+    }
+    else{
+         return ((a/b).toFixed(2))
+    }
+}
+

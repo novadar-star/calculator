@@ -29,6 +29,10 @@ function operate(first, second, operator){
         case "/":
             result = divide(num1, num2)
             break;
+        case "²":
+            result = square(num1)
+            break;
+       
         default:
             alert("Error occured!")
             }
@@ -36,8 +40,10 @@ function operate(first, second, operator){
         return result
     }
 
-    return Math.round((result * 1000)/1000) //rounds to 3 decimal places
-}
+    return Math.round((result + Number.EPSILON) * 100) / 100
+
+    }
+
 
 
 
@@ -53,8 +59,18 @@ function clickedEquals(){
     }
    
 }
-//condition if greater than 0 of screen length
-//slice (0,-1)
+
+
+function numBtnClick(target){
+    if(current === 2){ //if current screen is clicked with anthing other than num and oper
+        clearFields()
+    }
+    
+    screen.innerText += target.innerText;
+    latestClick = 0;
+
+}
+
 function operButtonClick(target){
     if(operator !== undefined && latestClick === 0){ //if oper is define and latestClick is 0
         screen.innerText =  operate(firstNum, screen.innerText, operator)
@@ -67,16 +83,6 @@ function operButtonClick(target){
     latestClick =1
 }
 
-function numBtnClick(target){
-    if(current === 2){ //if current screen is clicked with anthing other than num and oper
-        clearFields()
-    }
-    
-    screen.innerText += target.innerText;
-    latestClick = 0;
-    
-    
-}
 
 function backspace(){
  if(screen.innerText > 0){
@@ -137,5 +143,11 @@ function divide(a,b){
     else{
          return ((a/b).toFixed(2))
     }
+
+}
+function square(a,b){
+    b= 2
+    return Math.pow(a,b)
+
 }
 

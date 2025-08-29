@@ -94,8 +94,11 @@ function clearFields(){
     //convert number to tring then use slice
      if(screen.innerText > 0){
     screen.innerText = screen.innerText.slice(-1,0)
+
+
      }
-    current = 1;
+         current = 1;
+
 }
 
 numBtn.addEventListener("click", (e)=>{
@@ -118,6 +121,8 @@ clearBtn.addEventListener("click", (e)=>{
  }
  else if(target.id === "clear-all"){
      clearFields()
+              window.top.location = window.top.location  
+
  }
 // else if(target.id === "clear-all")
 else if(target.id === "equals"){

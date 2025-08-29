@@ -78,7 +78,7 @@ function operButtonClick(target){
     firstNum = screen.innerText;
     operator = target.innerText;
     current = 2;
-    alert(`left: ${firstNum} and operator ${operator}`);
+   // alert(`firstNum: ${firstNum} and operator ${operator}`);
 
     latestClick =1
 }

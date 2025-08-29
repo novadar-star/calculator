@@ -9,7 +9,7 @@ let current = 1;
 
 //bugs:
 /*
-square function doesnt work (maybe bc of 1 parameter only)
+raise function doesnt work (maybe bc of 1 parameter only)
 */
 
 function operate(first, second, operator){
@@ -30,10 +30,9 @@ function operate(first, second, operator){
         case "/":
             result = divide(num1, num2)
             break;
-        case " ^":
-            result = raise(num1)
+        case "^":
+            result = raise(num1, num2)
             break;
-       
         default:
             alert("Error occured!")
             }
@@ -56,7 +55,7 @@ function clickedEquals(){
     }
     else if(latestClick === 0){
         screen.innerText = "" + operate(firstNum, screen.innerText, operator)
-        current = 2
+        current = 2;
     }
    
 }
@@ -73,7 +72,7 @@ function numBtnClick(target){
 }
 
 function operButtonClick(target){
-    if(operator !== undefined && latestClick === 0){ //if oper is define and latestClick is 0
+    if(operator !== undefined && latestClick === 0){ //if oper is define and latestClick is 0(clicked a button)
         screen.innerText =  operate(firstNum, screen.innerText, operator)
     }
     firstNum = screen.innerText;
@@ -86,7 +85,7 @@ function operButtonClick(target){
 
 
 function backspace(){
- if(screen.innerText > 0){
+ if(screen.innerText > 0){ //if type more than 0 characters
     screen.innerText = screen.innerText.slice(0,-1)
  }
 }
@@ -122,7 +121,6 @@ clearBtn.addEventListener("click", (e)=>{
     clearFields()
     window.top.location = window.top.location  
  }
-// else if(target.id === "clear-all")
 else if(target.id === "equals"){
     clickedEquals()
 }
@@ -144,12 +142,12 @@ function divide(a,b){
         alert(message)
     }
     else{
-         return ((a/b).toFixed(2))
+        return ((a/b).toFixed(2))
     }
 
 }
-function square(a,b){
-    b= 2
+function raise(a,b){
+
     return Math.pow(a,b)
 
 }

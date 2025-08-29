@@ -7,9 +7,10 @@ let firstNum= 0;
 let secondNum, operator;
 let current = 1;
 
-//bugs: AC doesnt permanently clear the screen, only its textcontent
-//delete button doesnt work
-//storing the clicked btn
+//bugs:
+/*
+square function doesnt work (maybe bc of 1 parameter only)
+*/
 
 function operate(first, second, operator){
     let num1 = +first,
@@ -29,8 +30,8 @@ function operate(first, second, operator){
         case "/":
             result = divide(num1, num2)
             break;
-        case "²":
-            result = square(num1)
+        case " ^":
+            result = raise(num1)
             break;
        
         default:
@@ -94,10 +95,8 @@ function clearFields(){
     //convert number to tring then use slice
      if(screen.innerText > 0){
     screen.innerText = screen.innerText.slice(-1,0)
-
-
      }
-         current = 1;
+    current = 1;
 
 }
 
@@ -120,9 +119,8 @@ clearBtn.addEventListener("click", (e)=>{
    backspace()
  }
  else if(target.id === "clear-all"){
-     clearFields()
-              window.top.location = window.top.location  
-
+    clearFields()
+    window.top.location = window.top.location  
  }
 // else if(target.id === "clear-all")
 else if(target.id === "equals"){
